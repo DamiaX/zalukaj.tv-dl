@@ -110,7 +110,6 @@ wget -q $up -O ${temp_files[3]}
 chmod +x "${temp_files[3]}"
 
 ./"${temp_files[3]}"
-clear_data;
 exit;
 fi
 }
@@ -171,8 +170,9 @@ fi
 hello()
 {
 clear;
+clear_data;
 show_text 33 "$app_name [$version]";
-#test_connect;
+test_connect;
 update;
 check_data;
 }
