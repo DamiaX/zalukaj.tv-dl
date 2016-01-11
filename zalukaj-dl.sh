@@ -109,8 +109,8 @@ wget -q $up -O ${temp_files[3]}
 
 chmod +x "${temp_files[3]}"
 
-clear_data;
 ./"${temp_files[3]}"
+clear_data;
 exit;
 fi
 }
