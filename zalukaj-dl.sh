@@ -3,11 +3,9 @@
 #Copyright © 2016 Damian Majchrzak (DamiaX)
 #https://github.com/DamiaX/zalukaj.tv-dl/
 
-version="0.2"
-
+version="0.3"
 app_name="Zalukaj.tv-DL"
 temp_files=(.temp.dvs .out.dvs .title.dvs .up.sh);
-
 connect_test_url=(google.com facebook.com kernel.org);
 vshare_url="https://raw.githubusercontent.com/DamiaX/D-Vshare.io/master/d-vshare";
 version_url="https://raw.githubusercontent.com/DamiaX/zalukaj.tv-dl/master/VERSION";
@@ -20,7 +18,6 @@ video_dir="$HOME/Zalukaj.tv_Movies"
 arg1="$1"
 term="/dev/tty";
 vshare_name=".d-vshare.sh"
-
 
 langpl()
 {
@@ -135,6 +132,7 @@ awk -vRS="</program>" '{gsub(/.*<program.*>/,"");print}' ${temp_files[1]} > ${te
 grep "http://zalukaj.tv/player.php?" ${temp_files[0]} > ${temp_files[1]};
 sed -i 's@id=@x=1\&id=@g' ${temp_files[1]};
 link=`cat ${temp_files[1]}`;
+wget -q $link -O ${temp_files[0]};
 }
  
 parse_t()
@@ -174,7 +172,7 @@ hello()
 {
 clear;
 show_text 33 "$app_name [$version]";
-test_connect;
+#test_connect;
 update;
 check_data;
 }
@@ -194,7 +192,6 @@ wget -q $url -O ${temp_files[0]};
 else
 wget -q $arg1 -O ${temp_files[0]};
 fi
-
 }
 
 main()
@@ -204,7 +201,6 @@ check_arg;
 include;
 title;
 parse_f;
-wget -q $link -O ${temp_files[0]};
 parse_t;
 clear_data;
 ./$vshare_name "$link" "$video_title" "$video_dir"
