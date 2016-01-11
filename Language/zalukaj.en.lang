@@ -1,1 +1,7 @@
+#Copyright © 2016 Damian Majchrzak (DamiaX)
+#https://github.com/DamiaX/zalukaj.tv-dl/
 
+new_version="Checking the version $app_name..."
+download_new="Download a newer version of $app_name..."
+no_connect="No connection to the Internet. \nAborting."
+ask_url="Enter address video to download..."
