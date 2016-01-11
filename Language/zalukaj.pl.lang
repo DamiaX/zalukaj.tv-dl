@@ -1,1 +1,4 @@
 
+new_version="Sprawdzanie wersji $app_name..."
+download_new="Pobieranie nowszej wersji programu $app_name..."
+no_connect="Brak połączenia z Internetem. \nPrzerwano."
