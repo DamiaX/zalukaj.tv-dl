@@ -3,7 +3,7 @@
 #Copyright © 2016 Damian Majchrzak (DamiaX)
 #https://github.com/DamiaX/zalukaj.tv-dl/
 
-version="0.3"
+version="0.4"
 app_name="Zalukaj.tv-DL"
 temp_files=(.temp.dvs .out.dvs .title.dvs .up.sh);
 connect_test_url=(google.com facebook.com kernel.org);
@@ -109,7 +109,7 @@ wget -q $up -O ${temp_files[3]}
 
 chmod +x "${temp_files[3]}"
 
-./"${temp_files[3]}"
+./"${temp_files[3]}" $0
 exit;
 fi
 }
