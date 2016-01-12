@@ -4,7 +4,7 @@
 #http://damiax.github.io/zalukaj.tv-dl/
 
 url="https://raw.githubusercontent.com/DamiaX/zalukaj.tv-dl/master/zalukaj-dl.sh";
-name="zalukaj-dl.sh";
+name="$1";
 
 rm -rf $name;
 
