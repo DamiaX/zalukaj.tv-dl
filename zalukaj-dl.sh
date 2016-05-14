@@ -3,8 +3,8 @@
 #Copyright © 2016 Damian Majchrzak (DamiaX)
 #https://github.com/DamiaX/zalukaj.tv-dl/
 
-version="0.4"
-app_name="Zalukaj.tv-DL"
+version="0.5"
+app_name="Zalukaj.com-DL"
 temp_files=(.temp.dvs .out.dvs .title.dvs .up.sh);
 connect_test_url=(google.com facebook.com kernel.org);
 vshare_url="https://raw.githubusercontent.com/DamiaX/D-Vshare.io/master/d-vshare";
@@ -124,7 +124,7 @@ fi
 
 parse_f()
 {
-sed -i 's@src="/player.php?@ <program>http://zalukaj.tv/player.php?@g' ${temp_files[0]};
+sed -i 's@src="/player.php?@ <program>http://zalukaj.com/player.php?@g' ${temp_files[0]};
 sed -i 's@" width="490" height="370"@ </program>@g' ${temp_files[0]};
 grep "<program>" ${temp_files[0]} > ${temp_files[1]};
 awk -vRS="</program>" '{gsub(/.*<program.*>/,"");print}' ${temp_files[1]} > ${temp_files[0]};
@@ -146,7 +146,7 @@ parse_t()
  
 title()
 {
-sed -i 's@- Zalukaj.tv@@g' ${temp_files[0]};
+sed -i 's@- Zalukaj.com@@g' ${temp_files[0]};
 cat ${temp_files[0]} | grep -oPm1 "(?<=<title>)[^<]+" > ${temp_files[2]};
 sed -i 's@/@-@g' ${temp_files[2]};
 sed -i 's/[ \t]*$//' ${temp_files[2]};
@@ -197,8 +197,8 @@ fi
 main()
 {
 hello;
-check_arg;
 include;
+check_arg;
 title;
 parse_f;
 parse_t;
